@@ -86,15 +86,24 @@ var ReactStars = function (_Component) {
       });
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(props) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(props) {
       this.setState({
         stars: this.getStars(props.value),
         value: props.value,
         halfStar: {
           at: Math.floor(props.value),
           hidden: this.state.config.half && props.value % 1 < 0.5
-        }
+        },
+        config: _extends({}, this.state.config, {
+          count: props.count,
+          size: props.size,
+          char: props.char,
+          color1: props.color1,
+          color2: props.color2,
+          half: props.half,
+          edit: props.edit
+        })
       });
     }
   }, {
